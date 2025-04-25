@@ -6,15 +6,25 @@ import { Menu } from "lucide-react";
 import { useState } from "react";
 
 const menuItems = [
-  { name: "Solutions", path: "/solutions" },
-  { name: "qlub+ Rewards", path: "/rewards" },
-  { name: "Partners", path: "/partners" },
-  { name: "Integrations", path: "/integrations" },
-  { name: "Success Stories", path: "/success-stories" },
-  { name: "Contact Us", path: "/contact" },
+  { 
+    name: "Platform Features",
+    path: "/platform-features",
+    hasDropdown: true
+  },
+  { name: "Pricing", path: "/pricing" },
+  { 
+    name: "Integrations",
+    path: "/integrations",
+    hasDropdown: true
+  },
+  { 
+    name: "Resources",
+    path: "/resources",
+    hasDropdown: true
+  },
 ];
 
-const menuCategories = [
+const foodCategories = [
   { name: "Fast Food", path: "/fast-food" },
   { name: "New Items", path: "/new-items" },
   { name: "Lunch Special", path: "/lunch-special" },
@@ -28,7 +38,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 w-full bg-white z-50 border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex-shrink-0">
           <div className="flex flex-col items-center">
@@ -38,71 +48,108 @@ const Navbar = () => {
         </Link>
 
         {/* Main Navigation - Desktop */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-8">
           <NavigationMenu>
             <NavigationMenuList className="flex gap-6">
               {menuItems.map((item) => (
                 <NavigationMenuItem key={item.name}>
-                  <Link
-                    to={item.path}
-                    className="text-gray-600 hover:text-gray-900 text-sm font-medium"
-                  >
-                    {item.name}
-                  </Link>
+                  {item.hasDropdown ? (
+                    <>
+                      <NavigationMenuTrigger className="text-[#2C3345] hover:text-black text-sm font-medium">
+                        {item.name}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="w-[220px] p-3 bg-white rounded-md shadow-lg">
+                          {foodCategories.map((category) => (
+                            <li key={category.name}>
+                              <Link
+                                to={category.path}
+                                className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
+                              >
+                                {category.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className="text-[#2C3345] hover:text-black text-sm font-medium px-3 py-2"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
           </NavigationMenu>
 
-          {/* View Menu Dropdown */}
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-gray-600 hover:text-gray-900 text-sm font-medium">
-                  View Menu
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="w-48 p-2 bg-white rounded-md shadow-lg">
-                    {menuCategories.map((category) => (
-                      <li key={category.name}>
-                        <Link
-                          to={category.path}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-                        >
-                          {category.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <div className="flex items-center gap-4">
+            <select className="text-sm text-[#2C3345] border-none focus:ring-0">
+              <option>EN</option>
+              <option>ES</option>
+              <option>FR</option>
+            </select>
+            
+            {/* View Menu Dropdown */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-[#2C3345] hover:text-black text-sm font-medium">
+                    View Menu
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="w-[220px] p-3 bg-white rounded-md shadow-lg">
+                      {foodCategories.map((category) => (
+                        <li key={category.name}>
+                          <Link
+                            to={category.path}
+                            className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
+                          >
+                            {category.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
 
-          <Button
-            variant="default"
-            className="bg-[#1A1E2C] text-white hover:bg-[#2A2E3C]"
-          >
-            Free Demo
-          </Button>
+            <Button
+              variant="default"
+              className="bg-[#0062FF] text-white hover:bg-blue-600"
+            >
+              Start free trial
+            </Button>
+
+            <Button
+              variant="outline"
+              className="border-[#2C3345] text-[#2C3345] hover:bg-gray-50"
+            >
+              Login
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
-        <div className="flex md:hidden items-center gap-4">
-          {/* View Menu Dropdown - Mobile */}
+        <div className="flex lg:hidden items-center gap-4">
+          {/* Mobile View Menu */}
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-gray-600 hover:text-gray-900 text-sm font-medium">
+                <NavigationMenuTrigger className="text-[#2C3345] hover:text-black text-sm font-medium">
                   View Menu
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="w-48 p-2 bg-white rounded-md shadow-lg">
-                    {menuCategories.map((category) => (
+                  <ul className="w-[220px] p-3 bg-white rounded-md shadow-lg">
+                    {foodCategories.map((category) => (
                       <li key={category.name}>
                         <Link
                           to={category.path}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+                          className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
                         >
                           {category.name}
                         </Link>
@@ -114,10 +161,9 @@ const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
 
-          {/* Mobile Menu Button */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
+              <Button variant="ghost" size="icon">
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
@@ -127,17 +173,25 @@ const Navbar = () => {
                   <Link
                     key={item.name}
                     to={item.path}
-                    className="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 rounded-md"
+                    className="block px-4 py-2 text-lg text-[#2C3345] hover:bg-gray-50 rounded-md"
                   >
                     {item.name}
                   </Link>
                 ))}
-                <Button
-                  variant="default"
-                  className="bg-[#1A1E2C] text-white hover:bg-[#2A2E3C] mt-4"
-                >
-                  Free Demo
-                </Button>
+                <div className="flex flex-col gap-3 mt-4">
+                  <Button
+                    variant="default"
+                    className="bg-[#0062FF] text-white hover:bg-blue-600 w-full"
+                  >
+                    Start free trial
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="border-[#2C3345] text-[#2C3345] hover:bg-gray-50 w-full"
+                  >
+                    Login
+                  </Button>
+                </div>
               </nav>
             </SheetContent>
           </Sheet>
