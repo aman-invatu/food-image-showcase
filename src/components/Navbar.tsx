@@ -11,6 +11,7 @@ const menuCategories = [
   { name: "Lunch Special", path: "/lunch" },
   { name: "Breakfast", path: "/breakfast" },
   { name: "Desserts", path: "/desserts" },
+  { name: "Orders", path: "/orders" }, // Added new orders option
 ];
 
 const Navbar = () => {
