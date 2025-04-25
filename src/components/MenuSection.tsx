@@ -1,5 +1,9 @@
 import { Card } from "./ui/card";
 import { motion } from "framer-motion";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
+import { Button } from "./ui/button";
+import { useState } from "react";
+import { Utensils } from "lucide-react";
 
 const menuItems = [
   {
@@ -38,10 +42,38 @@ const menuItems = [
 ];
 
 const MenuSection = () => {
+  const [selectedItems, setSelectedItems] = useState<Array<{id: number, quantity: number}>>([]);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+  
+  const addToOrder = (itemId: number) => {
+    setSelectedItems(prev => {
+      const existing = prev.find(item => item.id === itemId);
+      if (existing) {
+        return prev.map(item => 
+          item.id === itemId 
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+      return [...prev, { id: itemId, quantity: 1 }];
+    });
+    setIsSheetOpen(true);
+  };
+
+  const getTotalBill = () => {
+    return selectedItems.reduce((total, selected) => {
+      const menuItem = menuItems.find(item => item.id === selected.id);
+      return total + (parseFloat(menuItem?.price || "0") * selected.quantity);
+    }, 0);
+  };
+
+  const getTipAmount = (percentage: number) => {
+    return (getTotalBill() * percentage) / 100;
+  };
+
   return (
-    <section className="py-4 bg-white min-h-screen">
+    <section className="py-4 bg-gradient-to-b from-white to-gray-50 min-h-screen">
       <div className="max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto px-4">
-        {/* Menu Title */}
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">Our Menu</h2>
           <div className="w-16 h-0.5 bg-gray-900 mx-auto mb-4"></div>
@@ -50,7 +82,6 @@ const MenuSection = () => {
           </p>
         </div>
         
-        {/* Menu Items - Grid for larger screens */}
         <div className="md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
           {menuItems.map((item, index) => (
             <motion.div
@@ -59,7 +90,8 @@ const MenuSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group mb-6 md:mb-0"
+              className="group mb-6 md:mb-0 cursor-pointer"
+              onClick={() => addToOrder(item.id)}
             >
               <div className="flex items-start justify-between gap-4 py-6 bg-white rounded-lg px-4 transition-all duration-300 shadow-lg border border-gray-100">
                 <div className="flex-1">
@@ -84,12 +116,81 @@ const MenuSection = () => {
                   />
                 </div>
               </div>
-              {/* Only show divider on mobile */}
               <div className="border-b border-gray-100 md:hidden"></div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+        <SheetContent className="overflow-y-auto">
+          <SheetHeader>
+            <SheetTitle className="flex items-center gap-2">
+              <Utensils className="h-5 w-5" />
+              Your Order
+            </SheetTitle>
+          </SheetHeader>
+          
+          <div className="mt-6 space-y-6">
+            {selectedItems.map(selected => {
+              const item = menuItems.find(m => m.id === selected.id);
+              if (!item) return null;
+              
+              return (
+                <div key={item.id} className="flex items-center justify-between border-b pb-4">
+                  <div className="flex items-center gap-3">
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      className="w-16 h-16 rounded-lg object-cover"
+                    />
+                    <div>
+                      <h3 className="font-medium">{item.name}</h3>
+                      <p className="text-sm text-gray-600">Quantity: {selected.quantity}</p>
+                    </div>
+                  </div>
+                  <p className="font-medium">
+                    AED {(parseFloat(item.price) * selected.quantity).toFixed(2)}
+                  </p>
+                </div>
+              );
+            })}
+
+            <div className="border-t pt-4">
+              <div className="flex justify-between mb-4">
+                <span className="font-medium">Total Bill</span>
+                <span className="font-medium">AED {getTotalBill().toFixed(2)}</span>
+              </div>
+
+              <p className="text-sm text-gray-600 mb-3">Your tip matters!</p>
+              <div className="flex gap-3 mb-6">
+                {[7, 10, 15].map(percentage => (
+                  <Button
+                    key={percentage}
+                    variant="outline"
+                    className="flex-1"
+                  >
+                    {percentage}%
+                    <span className="block text-xs text-gray-500">
+                      AED {getTipAmount(percentage).toFixed(2)}
+                    </span>
+                  </Button>
+                ))}
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-sm text-gray-500">
+                  Includes tip, taxes and charges
+                </p>
+                <div className="grid grid-cols-2 gap-3">
+                  <Button variant="outline">Split bill</Button>
+                  <Button>Pay fully</Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
     </section>
   );
 };
