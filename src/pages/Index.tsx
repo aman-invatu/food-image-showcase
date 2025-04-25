@@ -1,5 +1,6 @@
 
 import Navbar from "@/components/Navbar";
+import HeroSlider from "@/components/HeroSlider";
 import MenuSection from "@/components/MenuSection";
 import RestaurantSection from "@/components/RestaurantSection";
 import FoodQualitySection from "@/components/FoodQualitySection";
@@ -11,7 +12,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <main className="pt-20">
+      <main>
+        <HeroSlider />
         <div className="space-y-16 md:space-y-24">
           <MenuSection />
           <RestaurantSection />
