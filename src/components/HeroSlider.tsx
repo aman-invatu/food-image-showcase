@@ -8,13 +8,13 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 const slides = [
   {
     id: 1,
-    image: "/lovable-uploads/0ed49bf1-7a0d-4bf4-b5cd-d4951cca5cf0.png",
+    image: "/lovable-uploads/0ed49bf1-7a0d-4bf4-b5cd-d4951cca5cf0.jpg",
     title: "Experience Culinary Excellence",
     description: "Indulge in our expertly crafted dishes that blend tradition with innovation"
   },
   {
     id: 2,
-    image: "/lovable-uploads/17194e01-d132-4c2f-b4e8-7a765667ef26.png",
+    image: "/lovable-uploads/17194e01-d132-4c2f-b4e8-7a765667ef26.jpg",
     title: "Luxury Accommodations",
     description: "Discover comfort and elegance in our carefully designed rooms"
   },

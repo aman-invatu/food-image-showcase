@@ -18,8 +18,8 @@ const Index = () => {
           <MenuSection />
           <RestaurantSection />
           <FoodQualitySection />
-          <Reviews />
           <RoomsSection />
+          <Reviews />
         </div>
       </main>
       <Footer />

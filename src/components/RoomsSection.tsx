@@ -30,7 +30,7 @@ const RoomsSection = () => {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="relative group overflow-hidden">
             <img
-              src="/lovable-uploads/17194e01-d132-4c2f-b4e8-7a765667ef26.png"
+              src="/lovable-uploads/17194e01-d132-4c2f-b4e8-7a765667ef26.jpg"
               alt="Luxury room with pool"
               className="w-full h-[400px] object-cover transform transition-transform duration-500 group-hover:scale-110"
             />
