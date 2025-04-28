@@ -1,7 +1,11 @@
 
 import Navbar from "@/components/Navbar";
 import HeroSlider from "@/components/HeroSlider";
-import MenuSection from "@/components/MenuSection";
+import MenuSection1 from "@/components/MenuSection1";
+import MenuSection2 from "@/components/MenuSection2";
+import MenuSection3 from "@/components/MenuSection3";
+import MenuSection4 from "@/components/MenuSection4";
+import MenuSection5 from "@/components/MenuSection5";
 import RestaurantSection from "@/components/RestaurantSection";
 import FoodQualitySection from "@/components/FoodQualitySection";
 import Reviews from "@/components/Reviews";
@@ -15,7 +19,11 @@ const Index = () => {
       <main>
         <HeroSlider />
         <div className="space-y-16 md:space-y-24">
-          <MenuSection />
+          <MenuSection1 />
+          <MenuSection2 />
+          <MenuSection3 />
+          <MenuSection4 />
+          <MenuSection5 />
           <RestaurantSection />
           <FoodQualitySection />
           <RoomsSection />

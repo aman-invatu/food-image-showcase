@@ -35,30 +35,7 @@ const menuItems = [
     currency: "AED",
     image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=200&h=200&fit=crop"
   },
-  {
-    id: 5,
-    name: "Summer Salad",
-    description: "Mixed greens with cherry tomatoes, feta cheese, and light vinaigrette",
-    price: "45.00",
-    currency: "AED",
-    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=200&h=200&fit=crop"
-  },,
-  {
-    id: 6,
-    name: "Summer Salad",
-    description: "Mixed greens with cherry tomatoes, feta cheese, and light vinaigrette",
-    price: "45.00",
-    currency: "AED",
-    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=200&h=200&fit=crop"
-  },,
-  {
-    id: 7,
-    name: "Summer Salad",
-    description: "Mixed greens with cherry tomatoes, feta cheese, and light vinaigrette",
-    price: "45.00",
-    currency: "AED",
-    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=200&h=200&fit=crop"
-  },
+
 ];
 
 const MenuSection = () => {

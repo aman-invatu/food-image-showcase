@@ -146,8 +146,9 @@ const Navbar = () => {
             <Button
               variant="default"
               className="bg-[#0062FF] text-white hover:bg-blue-600"
+              onClick={() => navigate('/orders')}
             >
-              Start free trial
+             My Orders
             </Button>
 
             <Button
