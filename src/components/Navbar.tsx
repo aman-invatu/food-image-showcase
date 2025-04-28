@@ -145,7 +145,7 @@ const Navbar = () => {
 
             <Button
               variant="default"
-              className="bg-[#0062FF] text-white hover:bg-blue-600"
+              className="bg-[#c9ca68] text-white hover:bg-yellow-400"
               onClick={() => navigate('/orders')}
             >
              My Orders
