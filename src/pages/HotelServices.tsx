@@ -44,6 +44,7 @@ const HotelServices = () => {
       title: "Fine Dining Restaurant",
       description: "Experience culinary excellence at our award-winning restaurant featuring international cuisine and local specialties.",
       category: "Dining"
+      // category: "Dining"
     },
    
     {
