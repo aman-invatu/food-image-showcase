@@ -1,6 +1,6 @@
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger, NavigationMenuContent } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { useState } from "react";
@@ -35,6 +35,7 @@ const foodCategories = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <nav className="fixed top-0 w-full bg-white z-50 border-b border-gray-200">
@@ -140,6 +141,7 @@ const Navbar = () => {
             <Button
               variant="outline"
               className="border-[#2C3345] text-[#2C3345] hover:bg-gray-50"
+              onClick={() => navigate('/login')}
             >
               Login
             </Button>
@@ -200,6 +202,7 @@ const Navbar = () => {
                   <Button
                     variant="outline"
                     className="border-[#2C3345] text-[#2C3345] hover:bg-gray-50 w-full"
+                    onClick={() => navigate('/login')}
                   >
                     Login
                   </Button>
