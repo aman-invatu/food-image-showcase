@@ -16,6 +16,24 @@ const HotelServices = () => {
       category: "Technology"
     },
     {
+      icon: <Wifi className="w-8 h-8"/>,
+      title: "High-Speed WiFi",
+      description: "Stay connected with our ultra-fast fiber optic internet throughout the hotel premises. Perfect for both business and leisure.",
+      category: "Technology"
+    },
+    {
+      icon: <Car className="w-8 h-8"/>,
+      title: "Valet Parking",
+      description: "Leave your vehicle in the capable hands of our professional valet team. Secure, covered parking available 24/7.",
+      category: "Parking"
+    },
+    {
+      icon: <Car className="w-8 h-8"/>,
+      title: "Valet Parking",
+      description: "Leave your vehicle in the capable hands of our professional valet team. Secure, covered parking available 24/7.",
+      category: "Parking"
+    },
+    {
       icon: <Car className="w-8 h-8"/>,
       title: "Valet Parking",
       description: "Leave your vehicle in the capable hands of our professional valet team. Secure, covered parking available 24/7.",
@@ -27,17 +45,18 @@ const HotelServices = () => {
       description: "Experience culinary excellence at our award-winning restaurant featuring international cuisine and local specialties.",
       category: "Dining"
     },
+   
     {
-      icon: <CarFront className="w-8 h-8"/>,
-      title: "Airport Transfer",
-      description: "Luxury transportation service to and from the airport. Our professional drivers ensure a comfortable journey.",
-      category: "Transportation"
+      icon: <PartyPopper className="w-8 h-8"/>,
+      title: "Event Spaces",
+      description: "Elegant venues for all occasions - weddings, conferences, or private celebrations with professional event planning services.",
+      category: "Events"
     },
     {
-      icon: <TreeDeciduous className="w-8 h-8"/>,
-      title: "Kids Play Area",
-      description: "A safe and entertaining environment for children with supervised activities and modern playground equipment.",
-      category: "Recreation"
+      icon: <PartyPopper className="w-8 h-8"/>,
+      title: "Event Spaces",
+      description: "Elegant venues for all occasions - weddings, conferences, or private celebrations with professional event planning services.",
+      category: "Events"
     },
     {
       icon: <PartyPopper className="w-8 h-8"/>,
@@ -52,11 +71,18 @@ const HotelServices = () => {
       category: "Dining"
     },
     {
-      icon: <FastForward className="w-8 h-8"/>,
-      title: "Express Check-in/out",
-      description: "Streamlined arrival and departure process with our digital system for your convenience.",
-      category: "Front Desk"
+      icon: <Menu className="w-8 h-8"/>,
+      title: "Multiple Restaurants",
+      description: "Choose from our variety of dining options including international cuisine, local specialties, and casual cafes.",
+      category: "Dining"
     },
+    {
+      icon: <Menu className="w-8 h-8"/>,
+      title: "Multiple Restaurants",
+      description: "Choose from our variety of dining options including international cuisine, local specialties, and casual cafes.",
+      category: "Dining"
+    },
+   
     {
       icon: <Building2 className="w-8 h-8"/>,
       title: "Business Center",

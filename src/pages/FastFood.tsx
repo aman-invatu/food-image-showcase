@@ -64,6 +64,12 @@ const FastFood = () => {
           description: "Freshly squeezed lemonade with mint",
           price: "$4.99",
           image: "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=300&h=200&fit=crop"
+        },
+        {
+          name: "Milkshakes",
+          description: "Choice of vanilla, chocolate, or strawberry",
+          price: "$5.99",
+          image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=200&fit=crop"
         }
       ]
     },
@@ -81,6 +87,12 @@ const FastFood = () => {
           description: "Warm apple pie with vanilla ice cream",
           price: "$7.99",
           image: "https://images.unsplash.com/photo-1568571780765-9276ac8b75a1?w=300&h=200&fit=crop"
+        },
+        {
+          name: "Ice Cream Sundae",
+          description: "Three scoops with hot fudge, whipped cream, and a cherry",
+          price: "$6.99",
+          image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop"
         }
       ]
     }

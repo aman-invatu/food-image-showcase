@@ -77,6 +77,12 @@ const Navbar = () => {
                                   <Link
                                     to={category.path}
                                     className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
+                                    onClick={(e) => {
+                                      if (category.name === "Fast Food") {
+                                        e.preventDefault();
+                                        navigate('/fast-food');
+                                      }
+                                    }}
                                   >
                                     {category.name}
                                   </Link>
@@ -120,6 +126,12 @@ const Navbar = () => {
                           <Link
                             to={category.path}
                             className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
+                            onClick={(e) => {
+                              if (category.name === "Fast Food") {
+                                e.preventDefault();
+                                navigate('/fast-food');
+                              }
+                            }}
                           >
                             {category.name}
                           </Link>
@@ -164,6 +176,12 @@ const Navbar = () => {
                         <Link
                           to={category.path}
                           className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
+                          onClick={(e) => {
+                            if (category.name === "Fast Food") {
+                              e.preventDefault();
+                              navigate('/fast-food');
+                            }
+                          }}
                         >
                           {category.name}
                         </Link>
