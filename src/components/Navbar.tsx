@@ -13,15 +13,15 @@ const menuItems = [
   },
   { name: "Pricing", path: "/pricing" },
   { 
-    name: "Integrations",
-    path: "/integrations",
-    hasDropdown: true
-  },
-  { 
     name: "Resources",
     path: "/resources",
     hasDropdown: true
   },
+];
+
+const hotelFeatures = [
+  { name: "Hotel Rooms", path: "/hotel-rooms" },
+  { name: "Hotel Services", path: "/hotel-services" },
 ];
 
 const foodCategories = [
@@ -60,16 +60,28 @@ const Navbar = () => {
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
                         <ul className="w-[220px] p-3 bg-white rounded-md shadow-lg">
-                          {foodCategories.map((category) => (
-                            <li key={category.name}>
-                              <Link
-                                to={category.path}
-                                className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
-                              >
-                                {category.name}
-                              </Link>
-                            </li>
-                          ))}
+                          {item.name === "Platform Features" 
+                            ? hotelFeatures.map((feature) => (
+                                <li key={feature.name}>
+                                  <Link
+                                    to={feature.path}
+                                    className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
+                                  >
+                                    {feature.name}
+                                  </Link>
+                                </li>
+                              ))
+                            : foodCategories.map((category) => (
+                                <li key={category.name}>
+                                  <Link
+                                    to={category.path}
+                                    className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
+                                  >
+                                    {category.name}
+                                  </Link>
+                                </li>
+                              ))
+                          }
                         </ul>
                       </NavigationMenuContent>
                     </>
