@@ -1,5 +1,4 @@
-
-import { Building2, Bed, Coffee, Wifi, Car, Utensils, Car2, TreeDeciduous, PartyPopper, FastForward, Menu } from "lucide-react";
+import { Building2, Bed, Coffee, Wifi, Car, Utensils, CarFront, TreeDeciduous, PartyPopper, FastForward, Menu } from "lucide-react";
 import { motion } from "framer-motion";
 
 const HotelServices = () => {
@@ -29,7 +28,7 @@ const HotelServices = () => {
       category: "Dining"
     },
     {
-      icon: <Car2 className="w-8 h-8"/>,
+      icon: <CarFront className="w-8 h-8"/>,
       title: "Airport Transfer",
       description: "Luxury transportation service to and from the airport. Our professional drivers ensure a comfortable journey.",
       category: "Transportation"
